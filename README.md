@@ -1,4 +1,4 @@
-# DOTFILES MIDDIENOMAD #
+## DOTFILES MIDDIENOMAD ##
 Contains configs for the following : 
 + Xmonad
 + Xmobar
@@ -12,7 +12,7 @@ Contains configs for the following :
 
 **Note :**  __These configs may not be really plug and play. You might need to tinker with the configs a bit to get things working correctly. This was working on an arch box.__
 
-## Prerequisites ##
+### Prerequisites ###
 The following packages must be installed for the configs to work.
 
 | Package_Name  | Description           |
@@ -35,3 +35,6 @@ The following packages must be installed for the configs to work.
 | nvim | Neovim, a new age VIM | 
 
 The package names may not be accurate, please get the correct package names for pacman from [official arch repos](https://www.archlinux.org/packages/) : 
+
+
+Here is a screenshot of my setup 
