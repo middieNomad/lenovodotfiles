@@ -38,3 +38,5 @@ The package names may not be accurate, please get the correct package names for 
 
 
 Here is a screenshot of my setup ![QUTEBROWSER](https://github.com/middieNomad/lenovodotfiles/raw/main/pngs/qutebrowser_xmobar.png)
+And here is another screenshot ![VIM](https://github.com/middieNomad/lenovodotfiles/raw/main/pngs/vi_terminator.png)
+
