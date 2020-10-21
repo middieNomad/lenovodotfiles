@@ -37,4 +37,4 @@ The following packages must be installed for the configs to work.
 The package names may not be accurate, please get the correct package names for pacman from [official arch repos](https://www.archlinux.org/packages/) : 
 
 
-Here is a screenshot of my setup 
+Here is a screenshot of my setup ![QUTEBROWSER](https://github.com/middieNomad/lenovodotfiles/raw/main/pngs/qutebrowser_xmobar.png)
