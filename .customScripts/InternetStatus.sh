@@ -11,7 +11,7 @@
 #  REQUIREMENTS: ---
 #          BUGS: ---
 #         NOTES: ---
-#        AUTHOR: MidwayNomad (), midwaynomad@gmail.com
+#        AUTHOR: MidwayNomad (), 
 #  ORGANIZATION: KBPS
 #       CREATED: 10/12/20 20:40
 #      REVISION:  ---

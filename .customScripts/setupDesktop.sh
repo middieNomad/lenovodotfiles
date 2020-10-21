@@ -13,7 +13,7 @@
 #         NOTES: This sets up my desktop with customisations to :
 #                 1. Cursor Speed of lenovo touchpad ElanTech
 #                 2. Sets a random desktop using feh
-#        AUTHOR: MidwayNomad (), midwaynomad@gmail.com
+#        AUTHOR: MidwayNomad (), 
 #  ORGANIZATION: KBPS
 #       CREATED: 10/05/20 23:02
 #      REVISION:  ---
