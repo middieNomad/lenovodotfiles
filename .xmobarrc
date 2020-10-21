@@ -1,0 +1,30 @@
+-- XMobar config
+--
+Config { font    = "xft:Hack:pixelsize=10:antialias=true:hinting=true"
+       , additionalFonts = [ "xft:Font Awesome 5 Brands:pixelsize=10" ]
+       , bgColor = "#444444"
+       , fgColor = "#d7d7d7"
+       , position = Top
+       , lowerOnStart = True
+       , hideOnStart = False
+       , allDesktops = True
+       , persistent = True
+       , iconRoot = "/home/midway/.xmonad/xpm/"  
+       , commands = [ Run Date "%b %d %Y  %H:%M:%S" "date" 10
+                    , Run MultiCpu ["-t", "<total0>% <total1>% <total2>% <total3>%","-H","50","--high","red"] 10
+                    , Run Weather "YMML" ["-t","<tempC>C <rh>%"] 3000
+                    , Run CoreTemp ["-t" , "<core0>C <core1>C"] 50
+                    , Run Memory ["-t", "<usedratio>%"] 10
+                    , Run Swap ["-t","<usedratio>%"] 10
+                    , Run DiskU [("/", "<used>")] [] 3600
+                    , Run UnsafeStdinReader
+                    , Run Com "/home/midway/.customScripts/BatteryStatus.sh" [] "batteryStatus" 10
+                    , Run Com "/home/midway/.customScripts/WirelessStatus.sh" [] "wirelessStatus" 10
+                    , Run Com "/home/midway/.customScripts/InternetStatus.sh" [] "internetStatus" 10
+                    , Run Com "/home/midway/.customScripts/VolumeStats.sh" [] "volumeStatus" 10
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "<icon=ram.xpm/><fc=#d7d7d7>|</fc> %UnsafeStdinReader% }{<icon=cpu.xpm/> <fc=#ffff5f>%multicpu%</fc> | <icon=temp.xpm/> <fc=#bd33ff>%coretemp%</fc> | <icon=wifi.xpm/> %wirelessStatus% %internetStatus% | <icon=vol.xpm/>%volumeStatus% | <icon=weather.xpm/> <fc=#ff5733>%YMML%</fc> | <icon=battery_uni.xpm/>%batteryStatus% | <icon=mem.xpm/> <fc=#ff5f87>%memory%</fc> <icon=swap.xpm/><fc=#ff5f87> %swap%</fc> | <icon=hdd.xpm/> <fc=#87afd7>%disku%</fc> | <fc=#afd75f>%date%</fc> <icon=ohm.xpm/>"
+       }
+
