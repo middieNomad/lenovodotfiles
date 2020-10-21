@@ -1,0 +1,65 @@
+# vim: ft=cfg
+[global]
+    monitor = 0
+    follow = none
+    geometry = "300x5-590+22"
+    indicate_hidden = yes
+    shrink = no
+    transparency = 10
+    notification_height = 10
+    separator_height = 0
+    padding = 8
+    horizontal_padding = 8
+    frame_width = 1
+    sort = yes
+    idle_threshold = 120
+    font = Hack bold 8
+    line_height = 0
+    markup = full
+    format = "%s\n%b"
+    alignment = center 
+    show_age_threshold = 60
+    word_wrap = yes
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = no
+    icon_position = top
+    max_icon_size = 32
+    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    sticky_history = yes
+    history_length = 20
+    dmenu = /usr/bin/dmenu -p dunst:
+    browser = /usr/bin/chromium 
+    always_run_script = true
+    title = Dunst
+    class = Dunst
+    startup_notification = false
+    force_xinerama = false
+
+[experimental]
+    per_monitor_dpi = false
+
+[shortcuts]
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history = ctrl+grave
+    context = ctrl+shift+period
+
+[urgency_low]
+    background = "#212121"
+    foreground = "#26c70a"
+    frame_color = "#6d706d"
+    timeout = 4
+
+[urgency_normal]
+    background = "#212121"
+    foreground = "#26c70a"
+    frame_color = "#6d706d"
+    timeout = 8
+
+[urgency_critical]
+    background = "#212121"
+    foreground = "#26c70a"
+    frame_color = "#6d706d"
+    timeout = 8
