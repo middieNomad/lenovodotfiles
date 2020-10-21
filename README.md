@@ -10,7 +10,7 @@ Contains configs for the following :
 + bashrc
 + imwheel
 
-**Note :**  __These configs may not be really plug and play. You might need to tinker with the configs a bit to get things working correctly. This was working on an arch box.__
+**Note :**  __These configs may not be  plug and play. You might need to tinker with the configs a bit to get things working correctly. This was working on an arch box.__
 
 ### Prerequisites ###
 The following packages must be installed for the configs to work.
@@ -34,7 +34,7 @@ The following packages must be installed for the configs to work.
 | feh | A lightweight image viewer, doubles up as a tool to set desktop backgrounds |
 | nvim | Neovim, a new age VIM | 
 
-The package names may not be accurate, please get the correct package names for pacman from [official arch repos](https://www.archlinux.org/packages/) : 
+The package names may not be accurate. Please get the correct package names for pacman from [official arch repos](https://www.archlinux.org/packages/) : 
 
 
 Screenshot1 ![QUTEBROWSER](https://github.com/middieNomad/lenovodotfiles/raw/main/pngs/qutebrowser_xmobar.png)
