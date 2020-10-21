@@ -1,0 +1,33 @@
+[global_config]
+  focus = mouse
+  borderless = True
+  hide_from_taskbar = True
+  title_hide_sizetext = True
+  title_transmit_bg_color = "#000000"
+  enabled_plugins = CustomCommandsMenu, LaunchpadBugURLHandler, LaunchpadCodeURLHandler, APTURLHandler, Logger, TerminalShot, MavenPluginURLHandler, TestPlugin, ActivityWatch, InactivityWatch
+  title_use_system_font = False
+  title_font = Hack 8
+  putty_paste_style = True
+[keybindings]
+[profiles]
+  [[default]]
+    visible_bell = True
+    urgent_bell = True
+    background_darkness = 1.0
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    foreground_color = "#e53c00"
+    scrollback_infinite = True
+    palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000ee:#cd00cd:#00cdcd:#e5e5e5:#7f7f7f:#ff0000:#00ff00:#ffff00:#5c5cff:#ff00ff:#00ffff:#ffffff"
+    use_theme_colors = True
+    copy_on_selection = True
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+[plugins]
