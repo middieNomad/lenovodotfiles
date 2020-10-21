@@ -24,7 +24,7 @@ The following packages must be installed for the configs to work.
 | xmobar | A lightweight status bar |
 | imwheel | Utility to send scroll speed |
 | playerctl | utility to control media player from cli |
-| xtrlock | X11 native locking | 
+| xtrlock | X11 native screen locking utility | 
 | strawberry | A clone of Clementine | 
 | scrot | A cli screenshotting tool | 
 | qutebrowser | A vim-keybinding based web browser based on py | 
@@ -37,6 +37,6 @@ The following packages must be installed for the configs to work.
 The package names may not be accurate, please get the correct package names for pacman from [official arch repos](https://www.archlinux.org/packages/) : 
 
 
-Here is a screenshot of my setup ![QUTEBROWSER](https://github.com/middieNomad/lenovodotfiles/raw/main/pngs/qutebrowser_xmobar.png)
-And here is another screenshot ![VIM](https://github.com/middieNomad/lenovodotfiles/raw/main/pngs/vi_terminator.png)
+Screenshot1 ![QUTEBROWSER](https://github.com/middieNomad/lenovodotfiles/raw/main/pngs/qutebrowser_xmobar.png)
+Screenshot2 ![VIM](https://github.com/middieNomad/lenovodotfiles/raw/main/pngs/vi_terminator.png)
 
