@@ -1,0 +1,16 @@
+#Speed up scrolling in PDFViewer
+"^zathura$"
+    None, Up, Button4, 4
+    None, Down, Button5, 4
+
+
+#Speed up scrolling in terminal 
+"^Navigator$"
+    None, Up, Button4, 4
+    None, Down, Button5, 4
+
+#Speed up scrolling in terminal 
+"^qutebrowser$"
+    None, Up, Button4, 3
+    None, Down, Button5, 3
+
