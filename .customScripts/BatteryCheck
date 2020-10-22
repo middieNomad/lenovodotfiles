@@ -1,0 +1,31 @@
+#!/bin/bash - 
+#===============================================================================
+#
+#          FILE: BatteryCheck.sh
+# 
+#         USAGE: ./BatteryCheck.sh 
+# 
+#   DESCRIPTION: 
+# 
+#       OPTIONS: ---
+#  REQUIREMENTS: ---
+#          BUGS: ---
+#         NOTES: ---
+#        AUTHOR: MidwayNomad (), midwaynomad@gmail.com
+#  ORGANIZATION: KBPS
+#       CREATED: 10/07/20 23:04
+#      REVISION:  ---
+#===============================================================================
+export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+
+
+threshold="003000"
+
+timeLeft=`/usr/bin/acpi -b | /usr/bin/grep 'remaining' | /usr/bin/awk '{print $5}' | /usr/bin/awk -F: '{print $1$2$3}'`
+humanReadable=`/usr/bin/acpi -b | /usr/bin/awk '{print $5}'`
+echo $humanReadable
+if [[ ! -z "$timeLeft" && "10#$timeLeft" -le "10#$threshold" ]]; then 
+   /usr/bin/notify-send -i /usr/share/icons/gnome/16x16/status/battery.xpm "Mate, connect your charger. You have just $humanReadable mins"
+else 
+   /usr/bin/echo "YOU STILL HAVE TIME $humanReadable"; 
+fi
