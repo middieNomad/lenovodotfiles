@@ -8,6 +8,7 @@
 --
 
 import XMonad
+import XMonad.Layout.Spacing
 import Data.Monoid
 import System.Exit
 import Graphics.X11.ExtraTypes.XF86
@@ -19,6 +20,15 @@ import System.Exit
 import XMonad.Util.Dmenu
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
+import XMonad.Layout.Dwindle
+import XMonad.Layout.NoBorders
+import XMonad.Layout.Tabbed
+import XMonad.Layout.BinarySpacePartition
+import XMonad.Layout.ResizableTile
+import XMonad.Layout.TwoPane
+import XMonad.Hooks.ManageDocks
+
+
 
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
@@ -35,7 +45,7 @@ myClickJustFocuses = False
 
 -- Width of the window border in pixels.
 --
-myBorderWidth   = 0
+myBorderWidth   = 2
 
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
@@ -57,8 +67,6 @@ myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
-myNormalBorderColor  = "#dddddd"
-myFocusedBorderColor = "#ff0000"
 
 quitWithWarning :: X ()
 quitWithWarning = do
@@ -201,31 +209,6 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
     ]
 
 ------------------------------------------------------------------------
--- Layouts:
-
--- You can specify and transform your layouts by modifying these values.
--- If you change layout bindings be sure to use 'mod-shift-space' after
--- restarting (with 'mod-q') to reset your layout state to the new
--- defaults, as xmonad preserves your old layout settings by default.
---
--- The available layouts.  Note that each layout is separated by |||,
--- which denotes layout choice.
---
-myLayout = tiled ||| Mirror tiled ||| Full
-  where
-     -- default tiling algorithm partitions the screen into two panes
-     tiled   = Tall nmaster delta ratio
-
-     -- The default number of windows in the master pane
-     nmaster = 1
-
-     -- Default proportion of screen occupied by master pane
-     ratio   = 1/2
-
-     -- Percent of screen to increment by when resizing panes
-     delta   = 3/100
-
-------------------------------------------------------------------------
 -- Window rules:
 
 -- Execute arbitrary actions and WindowSet manipulations when managing
@@ -239,9 +222,46 @@ myLayout = tiled ||| Mirror tiled ||| Full
 --
 -- To match on the WM_NAME, you can use 'title' in the same way that
 -- 'className' and 'resource' are used below.
---
+-- This has been shamelessly copied from here : https://xiangji.me/2018/11/19/my-xmonad-configuration/
+myStyle = def { activeColor = "#556064"
+                  , inactiveColor = "#2F3D44"
+                  , urgentColor = "#FDF6E3"
+                  , activeBorderColor = "#454948"
+                  , inactiveBorderColor = "#454948"
+                  , urgentBorderColor = "#268BD2"
+                  , activeTextColor = "#80FFF9"
+                  , inactiveTextColor = "#1ABC9C"
+                  , urgentTextColor = "#1ABC9C"
+                  , fontName = "xft:Hack:size=10:antialias=true"
+                  }
+
+myLayout = avoidStruts $
+  noBorders (tabbed shrinkText myStyle)
+  ||| tiled
+  ||| Mirror tiled
+  -- ||| noBorders Full
+  ||| twopane
+  ||| Mirror twopane
+  ||| emptyBSP
+  ||| Spiral R XMonad.Layout.Dwindle.CW (3/2) (11/10) -- L means the non-main windows are put to the left.
+
+  where
+     -- The last parameter is fraction to multiply the slave window heights
+     -- with. Useless here.
+     tiled = spacing 3 $ ResizableTall nmaster delta ratio []
+     -- In this layout the second pane will only show the focused window.
+     twopane = spacing 3 $ TwoPane delta ratio
+     -- The default number of windows in the master pane
+     nmaster = 1
+     -- Default proportion of screen occupied by master pane
+     ratio   = 1/2
+     -- Percent of screen to increment by when resizing panes
+     delta   = 1/100
+
+
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
+    , className =? "Galculator"     --> doFloat
     , className =? "Gimp"           --> doFloat
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore ]
@@ -256,6 +276,7 @@ myManageHook = composeAll
 -- combine event hooks use mappend or mconcat from Data.Monoid.
 --
 myEventHook = mempty
+
 
 ------------------------------------------------------------------------
 -- Status bars and logging
@@ -307,14 +328,15 @@ defaults = def {
         borderWidth        = myBorderWidth,
         modMask            = myModMask,
         workspaces         = myWorkspaces,
-        normalBorderColor  = myNormalBorderColor,
-        focusedBorderColor = myFocusedBorderColor,
+        normalBorderColor  = "#e1e1d0",
+        focusedBorderColor = "#336600",
 
       -- key bindings
         keys               = myKeys,
         mouseBindings      = myMouseBindings,
 
       -- hooks, layouts
+        --layoutHook         = spacing 4 $ Tall 1 (2/100) (1/2),
         layoutHook         = myLayout,
         manageHook         = myManageHook,
         handleEventHook    = myEventHook,
